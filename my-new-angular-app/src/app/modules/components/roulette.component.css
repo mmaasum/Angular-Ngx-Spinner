@@ -1,0 +1,59 @@
+.cold { background-color: #D9EDF7 }
+.neutral { /*background-color: #F5F5F5*/ }
+.hot { background-color: #F2DEDE; }
+
+.btn-black {
+	color: #FFF;
+	background-color: #000000;
+	border-color: #222222;
+}
+.btn-red {
+	color: #FFF;
+	background-color: #D9534F;
+	border-color: #AC2925;
+}
+.btn-green {
+	color: #FFF;
+	background-color: #449D44;
+	border-color: #398439;
+}
+ /* End style */
+.btn-black {
+    background-color: black;
+    color: white;
+}
+
+.btn-red {
+    background-color: red;
+    color: white;
+}
+
+.btn-green {
+    background-color: green;
+    color: white;
+}
+
+.blink-btn {
+
+}
+
+@keyframes glowing {
+    0% {
+        background-color: #2ba805;
+        box-shadow: 0 0 5px #2ba805;
+    }
+
+    50% {
+        background-color: #49e819;
+        box-shadow: 0 0 20px #49e819;
+    }
+
+    100% {
+        background-color: #2ba805;
+        box-shadow: 0 0 5px #2ba805;
+    }
+}
+
+.blink-btn {
+    animation: glowing 1300ms 5;
+}

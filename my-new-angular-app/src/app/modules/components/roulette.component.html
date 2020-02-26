@@ -1,0 +1,66 @@
+<div class="container">
+    <h1>Aardvark Roulette game API demo</h1>
+    <!-- Display top upper title and base url -->
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="form-group">
+                <label>API base URL</label>
+                <input class="form-control" id="baseUrl" [value]="baseURL">
+            </div>
+        </div>
+    </div>
+    <!-- previously loaded spins statistik -->
+    <div class="row">
+        <div class="col-xs-12">
+            <h4>Stats (last {{totalLimit}})</h4>
+            <table id="stats" class="table">
+                <tbody>
+                    <tr>
+                        <td>&nbsp;</td>
+                        <th colspan="5" class="cold">Cold</th>
+                        <th colspan="27" class="neutral">Neutral</th>
+                        <th colspan="5" class="hot">Hot</th>
+                    </tr>
+                    <tr>
+                        <th>Slot</th>
+                        <td class="{{'btn-' + configurations.colors[results.result]}}"
+                            *ngFor="let results of resultStatList">{{results.result}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Hits</th>
+                        <td [ngClass]="{'cold': i < 5, 'neutral': i > 5 && i < 31,  'hot': i > 31}"
+                            *ngFor="let results of resultStatList; let i = index">
+                            {{results.count}}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!-- game board to load new game -->
+    <div class="row">
+        <div class="col-xs-6">
+            <h4>Game board </h4>
+            <div class="row">
+                <div class="col-xs-10">
+                    <button data-id="{{'slot-' + spinButton}}" type="button"
+                        class="{{'col-xs-1 btn btn-' + configurations.colors[spinButton]}}"
+                        *ngFor="let spinButton of configurations.positionToId">{{spinButton}}</button>
+                </div>
+                <div class="col-xs-2">
+                    <ngx-spinner bdColor="rgba(255, 0, 0, 0.2);" size="medium" color="blue" type="ball-8bits">
+                    </ngx-spinner>
+                </div>
+            </div>
+            <h4>Events</h4>
+            <ul #divMessages id="divMessages" class="list-group">
+                <li class="list-group-item">Game {{spin.id}} will start in {{timeLeft}} sec</li>
+            </ul>
+        </div>
+        <div class="col-xs-6">
+            <h4>Log</h4>
+            <pre id="historyId"></pre>
+        </div>
+    </div>
+</div>
